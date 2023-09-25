@@ -27,10 +27,6 @@ h3 {
     color: #252525;
 }
 
-.hidden-heading {
-    display: none;
-}
-
 /* Header */
 header {
     background-color: #ffffff;
@@ -99,7 +95,7 @@ main {
 #hero {
     height: 600px;
     width: 100%;
-    background: url("../images/hero-image.jpg") no-repeat center center/cover;
+    background: url("../images/hero-image.webp") no-repeat center center/cover;
     position: relative;
 }
 
@@ -148,7 +144,7 @@ main {
 }
 
 #circle-cover-bg {
-    background: url('../images/reasons-image-main.webp') no-repeat top center / cover;
+    background: url('../images/reasons-image.webp') no-repeat top center / cover;
     height: 90vw;
     width: 90vw;
     margin-bottom: 20px;
@@ -164,29 +160,40 @@ main {
     justify-content: center;
 }
 
+/* Meetup Times section */
 #times {
     background: url('../images/dublin-city.webp') no-repeat center/cover;
-    /*Handles responsivity without the need for a media query*/
+    /* Handles responsivity without the need for a media query */
     display: flex;
     flex-wrap: wrap;
 }
 
 #times div {
     color: #fafafa;
-    background: rgb(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, .6);
     padding: 15px;
     text-align: center;
-    /*This will not wrap on screens of less than 400px wide. 
-    Each div will expand to fill the available space on its row*/
+    /* This will not wrap on screens of less than 400px wide.
+    Each div will expand to fill the available space on its row */
     flex-basis: 200px;
     flex-grow: 1;
-    /*Creates a grid of meetups times over the background image*/
+    /* Creates a grid of meetup time divs over the background image */
     border: 2px solid white;
 }
 
 #times h3 {
-    /*Override the heading colour set in general styles*/
+    /* Override the heading colour set in general styles */
     color: #fafafa;
+}
+
+/* Gallery page */
+#photos img {
+    width: 100%;
+    line-height: 1em;
+}
+
+#photos {
+    line-height: 0;
 }
 
 /* Footer */
@@ -204,6 +211,13 @@ main {
     color: #3a3a3a;
 }
 
+/* Media query: large or landscape phones (576px and up) */
+@media screen and (min-width: 576px) {
+    #photos {
+        column-count: 2;
+        column-gap: 0;
+    }
+}
 
 /* Media query: tablets and larger (768px and up) */
 @media screen and (min-width: 768px) {
@@ -265,12 +279,21 @@ main {
         align-self: flex-end;
     }
 
+    /* Gallery */
+    #photos {
+        column-count: 3;
+    }
 }
 
 /* Large devices (laptops and desktops, 992px and up) */
 @media screen and (min-width: 992px) {
     #menu a:hover {
         border-bottom: 1px solid #3a3a3a;
+    }
+
+    /* Gallery */
+    #photos {
+        column-count: 4;
     }
 }
 
@@ -287,7 +310,7 @@ main {
     }
 
     #benefits-image {
-        order: 0;
+        order: 0
     }
 
     #benefits-mental {
